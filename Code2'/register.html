@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Tài Khoản</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="register-body">
+    <div class="register-container">
+        <div class="register-header">
+            <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Quay Về</a>
+            <button class="close-btn">×</button>
+        </div>
+        
+        <h1 class="register-title">Đăng Ký</h1>
+        
+        <form class="register-form" id="registration-form">
+            <div class="input-group">
+                <input type="text" placeholder="Tên Tài Khoản" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Mật Khẩu Đăng Nhập" required>
+                <i class="fas fa-eye-slash toggle-password"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Nhập Lại Mật Khẩu" required>
+                <i class="fas fa-eye-slash toggle-password"></i>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Căn Cước Công Dân" required>
+            </div>
+            <div class="input-group">
+                <input type="tel" placeholder="Số Điện Thoại" required>
+            </div>
+            
+            <div class="input-group dropdown-sim">
+                <input type="text" value="Việt Nam" readonly>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="input-group dropdown-sim">
+                <input type="text" value="Đồng Việt Nam (VND)" readonly>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="input-group dropdown-sim">
+                <input type="text" value="Tiếng Việt" readonly>
+                <i class="fas fa-caret-down"></i>
+            </div>
+
+            <div class="terms-check">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">Tôi đã đủ 18 tuổi, tôi đã đọc và đồng ý với điều khoản <a href="#">Thỏa Thuận Mở Tài Khoản</a></label>
+            </div>
+
+            <button type="submit" class="create-account-btn">Tạo Tài Khoản</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            // Ngăn chặn hành vi mặc định của form (tải lại trang)
+            event.preventDefault(); 
+            
+            // Chuyển hướng đến trang Dashboard sau khi "đăng ký" thành công
+            window.location.href = "dashboard.html";
+        });
+    </script>
+</body>
+</html>

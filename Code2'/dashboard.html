@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlink - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="starlink-container">
+
+        <header class="starlink-header">
+            <div class="logo">STARLINK <i class="fas fa-satellite"></i></div>
+            
+            <div class="user-info-bar">
+                <span id="player-name-display" class="user-greeting">Xin chào, Người chơi!</span>
+                <button class="btn-auth btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> ĐĂNG XUẤT
+                </button>
+            </div>
+        </header>
+        
+        <h1 class="headline-title">DỰ ĐOÁN KẾT QUẢ</h1>
+        <h2 class="headline-subtitle">BẮT ĐẦU CƠ HỘI TRÚNG QUÀ CỰC ĐỈNH</h2>
+        
+        <div class="prediction-card">
+            <div class="card-header">
+                <i class="fas fa-trophy"></i> TRẬN ĐẤU HOT NHẤT HÔM NAY
+            </div>
+
+            <div class="match-info">
+                <div class="team team-a">
+                    <img src="argentina_flag.png" alt="Cờ Argentina"> 
+                    <h3>ARGENTINA</h3>
+                </div>
+                
+                <div class="score-input">
+                    <input type="number" min="0" value="0" id="score-a">
+                    <span class="vs">VS</span>
+                    <input type="number" min="0" value="0" id="score-b">
+                </div>
+                
+                <div class="team team-b">
+                    <img src="portugal_flag.png" alt="Cờ Bồ Đào Nha">
+                    <h3>BỒ ĐÀO NHA</h3>
+                </div>
+            </div>
+            
+            <button class="predict-button" id="predict-btn">
+                <i class="fas fa-bolt"></i> XÁC NHẬN DỰ ĐOÁN
+            </button>
+
+            <p class="prize-note">Số dư hiện tại: <span class="highlight-prize">10.000.000 VND</span> (Cần nạp tiền để tham gia)</p>
+        </div>
+
+        <footer class="starlink-footer">
+            <p>&copy; 2025 Starlink. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hiển thị tên người dùng tĩnh
+            const defaultName = "VIP STAR";
+            document.getElementById('player-name-display').textContent = `Xin chào, ${defaultName}!`;
+        });
+        
+        function logout() {
+            alert('Bạn đã đăng xuất thành công.');
+            // Chuyển về trang index.html
+            window.location.href = "index.html"; 
+        }
+
+        document.getElementById('predict-btn').addEventListener('click', function() {
+            const scoreA = document.getElementById('score-a').value;
+            const scoreB = document.getElementById('score-b').value;
+            
+            const teamA = document.querySelector('.team-a h3').textContent;
+            const teamB = document.querySelector('.team-b h3').textContent;
+
+            alert('Bạn đã dự đoán tỉ số trận ' + teamA + ' vs ' + teamB + ' là: ' + scoreA + ' - ' + scoreB + '. Dự đoán của bạn đã được ghi nhận.');
+        });
+    </script>
+</body>
+</html>
